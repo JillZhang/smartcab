@@ -58,4 +58,6 @@ The action with the highest Q value is selected and the Q matrix is updated each
 ##Optimize the algorithm
 Change the default Q value from 0 to 20, which improve the success rate from 85% to 93%.
 The intuitions behind the change is that, with a larger default Q value, the agent is more likely to try a new path and thus the Q values converge sooner, which improve the performance of the Q learning algorithm.
-To make a conclusion, since the penalty rate of the Q-learning algorithm is 0.05 and it reaches a success rate more than 90%, the agent is close to finding an optimal policy.
+Another change is decrease the value of discount rate (gamma) from 0.33 to 0.2. This further increase the success rate to 95%. The penalty rate of the agent increases a little to 0.06. Again, with a lower discount rate, the agent is more like to try a new path and thus the Q values converge sooner.
+To make a conclusion, since the penalty rate of the Q-learning algorithm is 0.05 and it reaches a success rate more than 90%, the agent is close to finding an optimal policy. However, the policy is not ideal. For example, in the situation that inputs = {'light': 'red', 'oncoming': None, 'waypoint': 'forward'}, the best action the agent should take is to stay none and then go forward when the traffic light turns to green. However, in this given state, action=’right’ may have a greater value than action=’None’. The agent will circle around in this situation and take additional steps to go the destination.
+
